@@ -23,17 +23,17 @@ A solução envolve o projeto de três componentes interligados:
 .
 ├── README.md                 # Guia do projeto e instruções de execução
 ├── AI_LOG.md                 # Registro do uso de ferramentas de IA generativa
-├── requirements.txt          # Dependências do ambiente Python
+├── requirements.txt          # Dependências
 ├── inferencia.ipynb          # Notebook para inferência em imagem individual
 ├── data/                     # Diretório de dados com o dataset bruto e o sintético
 ├── checkpoints/              # Pesos dos modelos treinados (.pth)
-├── src/                      # Código-fonte modularizado
+├── src/                      
 │   ├── dataset.py            # Datasets, DataLoaders e Augmentations
 │   ├── synthetic.py          # Gerador sintético de elipses
 │   ├── models/               # Arquiteturas de rede
-│   ├── losses/               # Funções de perda personalizadas
+│   ├── losses/               
 │   └── utils/                # Matching, mAP, pós-processamento e campo receptivo
-└── scripts/                  # Scripts de entrada
-    ├── train.py              # Script principal de treinamento
-    ├── evaluate.py           # Script de avaliação e cálculo de métricas
-    └── stress_test.py        # Execução dos testes de estresse
+└── scripts/                  
+    ├── train.py              
+    ├── evaluate.py           
+    └── stress_test.py        
