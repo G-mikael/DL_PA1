@@ -1,4 +1,5 @@
 #ignore personalizado do repositório
+data/*
 !data/**/.gitkeep
 
 
