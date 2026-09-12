@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import os
 from pathlib import Path
+import random
 
 CURRENT_FILE = Path(__file__).resolve()
 SRC_DIR = CURRENT_FILE.parent
@@ -9,7 +10,10 @@ ROOT_DIR = CURRENT_FILE.parent.parent
 os.chdir(ROOT_DIR)
 
 
-def generate_ellipse_dataset(num_samples=100, output_dir="data/synthetic", img_size=(128, 128)):
+def generate_ellipse_dataset(num_samples=100, output_dir="data/synthetic", img_size=(128, 128), seed=2026):
+    random.seed(seed)
+    np.random.seed(seed)
+    
     os.makedirs(f"{output_dir}/images", exist_ok=True)
     os.makedirs(f"{output_dir}/masks", exist_ok=True)
 
