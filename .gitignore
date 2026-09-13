@@ -1,6 +1,13 @@
 #ignore personalizado do repositório
 data/*
 !data/**/.gitkeep
+!data/processed/split.json
+
+# Outputs
+
+
+# Jupyter
+.ipynb_checkpoints/
 
 
 #ignore padrão do python

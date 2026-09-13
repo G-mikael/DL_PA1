@@ -1,0 +1,18 @@
+# --- Deep Learning & Computer Vision ---
+torch>=2.0.0
+torchvision>=0.15.0
+segmentation_models_pytorch
+albumentations>=1.3.1
+opencv-python-headless>=4.8.0
+
+# --- Processamento de Imagens & Aprendizado de Máquina ---
+scikit-learn>=1.3.0
+numpy>=1.24.0
+Pillow>=10.0.0
+
+# --- Visualização de Dados ---
+matplotlib>=3.7.0
+
+# --- Autenticação & Nuvem ---
+huggingface-hub>=0.16.0
+python-dotenv>=1.0.0
