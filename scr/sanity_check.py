@@ -4,6 +4,7 @@ from torch.utils.data import DataLoader, Subset
 import segmentation_models_pytorch as smp
 from torch.utils.data import Dataset
 
+import time
 import numpy as np
 import cv2
 import random
@@ -61,14 +62,17 @@ def run_sanity_check():
         classes=1
     ).to(device)
 
-    # Otimizador e Loss (BCE com Logits)
+    # Otimizador (adam) e Loss (BCE com Logits)
+    # Adam escolhido pela velocidade de convergência e tendencia a não ficar preso em mínimos locais
+    # BCEWithLogitsLoss combina sigmoid + BCE, evitando logs próximos de zero, e útil para problemas de segmentação binária
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
     criterion = nn.BCEWithLogitsLoss()
 
     # Loop de Overfitting (150 épocas)
     model.train()
     print("Iniciando Overfitting Sanity Check...")
-
+    start_time = time.time()
+    
     for epoch in range(1, 151):
         for images, masks in sanity_loader:
             images, masks = images.to(device), masks.to(device)
@@ -80,15 +84,18 @@ def run_sanity_check():
             optimizer.step()
 
         if epoch % 30 == 0 or epoch == 1:
-            print(f"Época {epoch:03d}/150 | Loss: {loss.item():.6f}")
+            print(f"Época {epoch:03d}/150 | Loss: {loss.item():.6f} | Tempo decorrido: {time.time() - start_time:.2f}s")
 
+    total_time = time.time() - start_time
+    print(f"\nTempo total de treino: {total_time:.2f}s")    
+    
     # Validação do Critério de Parada
     if loss.item() < 0.05:
-        print("\n SANITY CHECK APROVADO: A loss convergiu para próximo de zero!")
+        print(f"\n SANITY CHECK APROVADO: A loss convergiu para {loss.item():.6f}!")
         print("O pipeline de tensores, modelo e retropropagação está funcional.")
     else:
-        print("\n SANITY CHECK FALHOU: A loss não caiu suficientemente.")
-        print("Verifique learning rate, dimensões dos tensores ou cálculo da loss.")
+        print(f"\n SANITY CHECK FALHOU: A loss não caiu suficientemente. Valor final: {loss.item():.6f}")
+        print("Verifique learning rate, arquitetura do modelo ou dimensões dos tensores ou cálculo da loss.")
 
 if __name__ == "__main__":
     run_sanity_check()

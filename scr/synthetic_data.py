@@ -25,7 +25,7 @@ def generate_ellipse_dataset(num_samples=100, output_dir="data/synthetic", img_s
         # Array com máscara de instâncias com id único para cada elipse
         instance_mask = np.zeros(img_size, dtype=np.int32)
         num_ellipses = np.random.randint(5, 21)
-
+        
         for inst_id in range(1, num_ellipses + 1):
             # Coordenadas do centro, eixos e ângulos aleatórios
             center = (np.random.randint(15, img_size[1] - 15), 
@@ -55,4 +55,4 @@ def generate_ellipse_dataset(num_samples=100, output_dir="data/synthetic", img_s
     print(f"{num_samples} amostras sintéticas geradas com sucesso em '{output_dir}'.")
 
 if __name__ == "__main__":
-    generate_ellipse_dataset(num_samples=200)
+    generate_ellipse_dataset(num_samples=100)
