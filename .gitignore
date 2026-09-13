@@ -3,6 +3,14 @@ data/*
 !data/**/.gitkeep
 !data/processed/split.json
 
+# Outputs
+outputs/
+results/
+checkpoints/
+
+# Jupyter
+.ipynb_checkpoints/
+
 
 #ignore padrão do python
 # Byte-compiled / optimized / DLL files
