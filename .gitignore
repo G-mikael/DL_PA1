@@ -1,6 +1,7 @@
 #ignore personalizado do repositório
 data/*
 !data/**/.gitkeep
+!data/processed/split.json
 
 
 #ignore padrão do python
