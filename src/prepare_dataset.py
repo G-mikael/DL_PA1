@@ -133,6 +133,7 @@ split_data = {
 
 # Salva o mapeamento em JSON dentro de data/processed
 split_json_path = OUTPUT_DIR / "split.json"
+split_clustered_json_path = OUTPUT_DIR / "split_clustered.json"
 with open(split_json_path, "w") as f:
     json.dump(split_data, f, indent=4)
 

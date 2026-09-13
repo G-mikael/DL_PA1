@@ -4,9 +4,7 @@ data/*
 !data/processed/split.json
 
 # Outputs
-outputs/
-results/
-checkpoints/
+
 
 # Jupyter
 .ipynb_checkpoints/
