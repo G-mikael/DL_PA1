@@ -61,11 +61,17 @@ print(img_paths_list)
 
 X = np.array(features_list)
 
-# Buscando separar as imagens em 4 diferentes modalidades usando K-Means
-# Fluorescência: Núcleos brancos brilhantes em fundo preto
-# Histologia (H&E): Núcleos roxos escuros sobre tecido rosa/claro
-# Campo Claro (Brightfield): Núcleos cinzas/translúcidos com baixo contraste
-# Células de Alta Densidade: Imagens com centenas de núcleos minúsculos encostados
+# Buscando separar as imagens em 5 diferentes modalidades usando K-Means
+# Modalidade 0 — Fluorescência de Baixa Densidade / Baixo Contraste
+# Características: Fundo completamente escuro/preto com núcleos claros e esparsos. É o grupo majoritário do dataset.
+# Modalidade 1 — Histologia de Tecido (H&E / Coloração Roxa)
+# Características: Lâminas histológicas com coloração roxa/azulada contínua e fundo roxo-claro/cinza.
+# Modalidade 2 — Campo Claro / Citologia (Células Isoladas)
+# Características: Fundo muito claro/branco com núcleos escuros bem delimitados dentro do citoplasma celular (aparência de citologia em meio líquido).
+# Modalidade 3 — Fluorescência de Alta Densidade / Alto Brilho
+# Características: Fundo escuro, mas com altíssima densidade de núcleos pequenos e muito brilhantes (alto contraste/saturação).
+# Modalidade 4 — Histologia de Núcleos Agrupados (H&E / Fundo Claro)
+# Características: Núcleos agrupados em áreas de fundo claro, com coloração característica da coloração H&E.
 
 N_CLUSTERS = 5
 kmeans = KMeans(n_clusters=N_CLUSTERS, random_state=2026, n_init=10)
