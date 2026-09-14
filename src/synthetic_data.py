@@ -44,6 +44,20 @@ def generate_ellipse_dataset(num_samples=100, output_dir="data/synthetic", img_s
             cv2.ellipse(temp_mask, center, axes, angle, 0, 360, 255, -1)
             instance_mask[temp_mask == 255] = inst_id
 
+        # Após desenhar todas as elipses:
+        # Caso uma elipse seja sobreposta por outra, o ID da elipse superior prevalece na máscara de instâncias.
+        # Removeremos os IDs de instâncias que não estão presentes na máscara final, garantindo uma sequência contínua de IDs.
+        
+        unique_ids = np.unique(instance_mask)
+        unique_ids = unique_ids[unique_ids != 0]
+
+        # Remapeia IDs para garantir sequência contínua
+        compact_mask = np.zeros_like(instance_mask)
+        for new_id, old_id in enumerate(unique_ids, start=1):
+            compact_mask[instance_mask == old_id] = new_id
+
+        instance_mask = compact_mask
+        
         # Ruído Gaussiano
         noise = np.random.normal(0, np.random.uniform(5, 15), image.shape).astype(np.float32)
         noisy_image = np.clip(image.astype(np.float32) + noise, 0, 255).astype(np.uint8)
