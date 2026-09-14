@@ -9,13 +9,23 @@ from torch.utils.data import Dataset, DataLoader
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
 import segmentation_models_pytorch as smp
-from pathlib import Path
 import os
 
 CURRENT_FILE = Path(__file__).resolve()
 SRC_DIR = CURRENT_FILE.parent
 ROOT_DIR = CURRENT_FILE.parent.parent
+LOG_DIR = ROOT_DIR / "results" / "logs" 
+LOG_DIR.mkdir(exist_ok=True)
+
 os.chdir(ROOT_DIR)
+
+def set_seed(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+    torch.backends.cudnn.deterministic = True
+
+set_seed(2026)
 
 # Augmentations via Albumentations
 def get_transforms(split="train"):
@@ -113,6 +123,9 @@ def train_baseline():
     best_val_iou = 0.0
     epochs = 40
 
+    start_time = time.time()
+    history = []
+    
     for epoch in range(1, epochs + 1):
         # --- TREINO ---
         model.train()
@@ -154,11 +167,20 @@ def train_baseline():
 
         scheduler.step(mean_val_iou)
 
+        history.append({
+            "epoch": epoch,
+            "train_loss": round(train_loss, 4),
+            "val_loss": round(val_loss, 4),
+            "val_iou": round(mean_val_iou, 4),
+            "val_dice": round(mean_val_dice, 4),
+            "lr": optimizer.param_groups[0]["lr"]
+        })
+        
         print(f"Época {epoch:02d}/{epochs:02d} | "
               f"Train Loss: {train_loss:.4f} | "
               f"Val Loss: {val_loss:.4f} | "
               f"Val IoU: {mean_val_iou:.4f} | "
-              f"Val Dice: {mean_val_dice:.4f}")
+              f"Val Dice: {mean_val_dice:.4f} | Tempo decorrido: {time.time() - start_time:.2f}s")
 
         # Salva o melhor checkpoint baseado no IoU semântico
         if mean_val_iou > best_val_iou:
@@ -166,6 +188,34 @@ def train_baseline():
             checkpoint_path = CHECKPOINT_DIR / "baseline_unet_resnet18.pth"
             torch.save(model.state_dict(), checkpoint_path)
             print(f" Novo melhor modelo salvo em: {checkpoint_path} (IoU: {best_val_iou:.4f})")
+    
+    total_train_time = time.time() - start_time
+
+    #Logging do histórico de treino e métricas
+    log_data = {
+        "step": "Parte 1 - Treino Baseline Semântica",
+        "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "architecture": "Unet-ResNet18",
+        "epochs": epochs,
+        "batch_size": 16,
+        "lr_initial": 1e-3,
+        "total_train_time_seconds": round(total_train_time, 2),
+        "best_val_iou": round(best_val_iou, 4),
+        "history": history
+    }
+
+    log_json_path = LOG_DIR / "parte1_train_history.json"
+    with open(log_json_path, "w", encoding="utf-8") as f:
+        json.dump(log_data, f, indent=4, ensure_ascii=False)
+
+    log_txt_path = LOG_DIR / "parte1_train_history.txt"
+    with open(log_txt_path, "w", encoding="utf-8") as f:
+        f.write("=== LOG PARTE 1: TREINO BASELINE ===\n")
+        f.write(f"Data: {log_data['timestamp']}\n")
+        f.write(f"Tempo Total de Treino: {log_data['total_train_time_seconds']}s\n")
+        f.write(f"Melhor Val IoU: {log_data['best_val_iou']}\n")
+
+    print(f"Histórico e logs salvos em: '{log_json_path}' e '{log_txt_path}'")
 
 if __name__ == "__main__":
     train_baseline()

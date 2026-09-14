@@ -10,6 +10,7 @@ import segmentation_models_pytorch as smp
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
 import os
+import time
 
 CURRENT_FILE = Path(__file__).resolve()
 SRC_DIR = CURRENT_FILE.parent
@@ -17,6 +18,8 @@ ROOT_DIR = CURRENT_FILE.parent.parent
 os.chdir(ROOT_DIR)
 
 #CONFIGURAÇÕES DE DADOS E DISPOSITIVO
+LOG_DIR = ROOT_DIR / "results" / "logs"
+LOG_DIR.mkdir(exist_ok=True)
 RAW_DIR = ROOT_DIR / "data" / "raw" / "stage1_train"
 SPLIT_PATH = ROOT_DIR / "data" / "processed" / "split.json"
 CHECKPOINT_PATH = ROOT_DIR / "checkpoints" / "baseline_unet_resnet18.pth"
@@ -84,7 +87,8 @@ def evaluate_image_ap(pred_masks, gt_masks, iou_thresholds=np.arange(0.5, 1.0, 0
         fp = len(pred_masks) - tp
         fn = len(gt_masks) - tp
         
-        ap = tp / (tp + fp + fn) if (tp + fp + fn) > 0 else 0.0
+        denom = tp + fp + fn
+        ap = float(tp / denom) if denom > 0 else 0.0
         aps.append(ap)
 
     return np.mean(aps) # mAP da imagem sobre os 10 limiares
@@ -109,8 +113,6 @@ def run_evaluation():
         for sample_id in val_ids:
             sample_folder = RAW_DIR / sample_id
             image_folder = sample_folder / "images"
-            
-            print(f"[DEBUG] Buscando imagens em: {image_folder.resolve()}")
             
             img_files = list(image_folder.glob("*.png")) + list(image_folder.glob("*.PNG"))
             
@@ -145,23 +147,27 @@ def run_evaluation():
 
             # Métricas por imagem
             image_map = evaluate_image_ap(pred_masks, gt_masks)
-            count_error = abs(len(pred_masks) - len(gt_masks))
+            raw_count_error = len(pred_masks) - len(gt_masks)
             
             results.append({
                 "id": sample_id,
                 "gt_count": len(gt_masks),
                 "pred_count": len(pred_masks),
-                "map": image_map,
-                "count_error": count_error
+                "map": float(image_map),
+                "count_error": abs(raw_count_error),
+                "raw_count_error": raw_count_error
             })
 
     # --- RELATÓRIO DE MÉTRICAS ---
     mean_map = np.mean([r["map"] for r in results])
-    mean_mae = np.mean([r["count_error"] for r in results])
+    errors = [r["pred_count"] - r["gt_count"] for r in results]
+    mean_mae = float(np.mean([abs(e) for e in errors]))
+    mean_rmse = float(np.sqrt(np.mean([e**2 for e in errors])))
     
     print("\n=== RESULTADOS DA PARTE 1 (BASELINE INGÊNUA) ===")
     print(f"mAP de Instância (IoU 0.50:0.95): {mean_map:.4f}")
     print(f"Erro Médio Absoluto de Contagem (MAE): {mean_mae:.2f} núcleos")
+    print(f"Erro Quadrático Médio de Contagem (RMSE): {mean_rmse:.2f} núcleos")
 
     # --- GERAÇÃO DO GRÁFICO DE FRACASSO ---
     gt_counts = [r["gt_count"] for r in results]
@@ -180,6 +186,35 @@ def run_evaluation():
     plt.savefig(output_graph, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"Gráfico de quantificação do fracasso salvo em: {output_graph}")
+    
+    # Salvamento de Logs Finais
+    log_data = {
+        "step": "Parte 1 - Avaliação Baseline Semântica",
+        "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "checkpoint_used": str(CHECKPOINT_PATH),
+        "num_val_samples": len(val_ids),
+        "metrics": {
+            "mAP_instance_050_095": round(mean_map, 4),
+            "MAE_count": round(mean_mae, 2),
+            "RMSE_count": round(mean_rmse, 2)
+        },
+        "per_image_results": results
+    }
+
+    log_json_path = LOG_DIR / "parte1_evaluation_metrics.json"
+    with open(log_json_path, "w", encoding="utf-8") as f:
+        json.dump(log_data, f, indent=4, ensure_ascii=False)
+
+    log_txt_path = LOG_DIR / "parte1_evaluation_metrics.txt"
+    with open(log_txt_path, "w", encoding="utf-8") as f:
+        f.write("=== LOG PARTE 1: AVALIAÇÃO BASELINE INGÊNUA ===\n")
+        f.write(f"Data: {log_data['timestamp']}\n")
+        f.write(f"Amostras Avaliadas: {log_data['num_val_samples']}\n")
+        f.write(f"mAP de Instância (IoU 0.50:0.95): {log_data['metrics']['mAP_instance_050_095']}\n")
+        f.write(f"Erro Médio Absoluto (MAE): {log_data['metrics']['MAE_count']}\n")
+        f.write(f"RMSE de Contagem: {log_data['metrics']['RMSE_count']}\n")
+
+    print(f"Logs salvos com sucesso em: '{log_json_path}' e '{log_txt_path}'")
 
 if __name__ == "__main__":
     run_evaluation()

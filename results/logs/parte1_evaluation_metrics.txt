@@ -1,0 +1,6 @@
+=== LOG PARTE 1: AVALIAÇÃO BASELINE INGÊNUA ===
+Data: 2026-09-14 07:40:44
+Amostras Avaliadas: 100
+mAP de Instância (IoU 0.50:0.95): 0.4522
+Erro Médio Absoluto (MAE): 12.57
+RMSE de Contagem: 37.76
