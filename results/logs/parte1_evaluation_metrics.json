@@ -1,0 +1,813 @@
+{
+    "step": "Parte 1 - Avaliação Baseline Semântica",
+    "timestamp": "2026-09-14 07:40:44",
+    "checkpoint_used": "/content/DL_PA1/checkpoints/baseline_unet_resnet18.pth",
+    "num_val_samples": 100,
+    "metrics": {
+        "mAP_instance_050_095": 0.4522,
+        "MAE_count": 12.57,
+        "RMSE_count": 37.76
+    },
+    "per_image_results": [
+        {
+            "id": "43cf6b2ec0b0745ac2b87b4d8780f62e9050d3f5d50a1fcefa42d166191e84c6",
+            "gt_count": 23,
+            "pred_count": 22,
+            "map": 0.8433245877061468,
+            "count_error": 1,
+            "raw_count_error": -1
+        },
+        {
+            "id": "a08166d91d2cca263d2dd52764dc25c9c582b7a5ece2b802749fa4be33187c49",
+            "gt_count": 22,
+            "pred_count": 17,
+            "map": 0.3280581831831832,
+            "count_error": 5,
+            "raw_count_error": -5
+        },
+        {
+            "id": "4dbbb275960ab9e4ec2c66c8d3000f7c70c8dce5112df591b95db84e25efa6e9",
+            "gt_count": 183,
+            "pred_count": 129,
+            "map": 0.3186331681941367,
+            "count_error": 54,
+            "raw_count_error": -54
+        },
+        {
+            "id": "05a8f65ebd0b30d3b210f30b4d640c847c2e710d0d135e0aeeaccbe1988e3b6e",
+            "gt_count": 26,
+            "pred_count": 21,
+            "map": 0.4559096459096459,
+            "count_error": 5,
+            "raw_count_error": -5
+        },
+        {
+            "id": "e4ae1ceddb279bac30273ca7ac480025ce2e7287328f5272234b5bbca6d13135",
+            "gt_count": 16,
+            "pred_count": 19,
+            "map": 0.7188640793903952,
+            "count_error": 3,
+            "raw_count_error": 3
+        },
+        {
+            "id": "a90cad45551d62c5cfa89517df8eb5e8f2f87f1a6e6678e606907afcbad91731",
+            "gt_count": 140,
+            "pred_count": 105,
+            "map": 0.4805100785055242,
+            "count_error": 35,
+            "raw_count_error": -35
+        },
+        {
+            "id": "54793624413c7d0e048173f7aeee85de3277f7e8d47c82e0a854fe43e879cd12",
+            "gt_count": 73,
+            "pred_count": 52,
+            "map": 0.17987587885799297,
+            "count_error": 21,
+            "raw_count_error": -21
+        },
+        {
+            "id": "1e61ecf354cb93a62a9561db87a53985fb54e001444f98112ed0fc623fad793e",
+            "gt_count": 6,
+            "pred_count": 7,
+            "map": 0.7483405483405483,
+            "count_error": 1,
+            "raw_count_error": 1
+        },
+        {
+            "id": "b8fdc02d915206bb2564e1f7da962f2b9d9d491b11afa00a76622b7932366480",
+            "gt_count": 21,
+            "pred_count": 22,
+            "map": 0.3581511950692985,
+            "count_error": 1,
+            "raw_count_error": 1
+        },
+        {
+            "id": "76faaed50ed6ea6814ac36199964b86fb09ba7f41a6f213bceaa80d625adc2e1",
+            "gt_count": 111,
+            "pred_count": 100,
+            "map": 0.6607542353556115,
+            "count_error": 11,
+            "raw_count_error": -11
+        },
+        {
+            "id": "2dd9d8c797fc695665326fc8fd0eb5cd292139fa478ccb5acb7fb352f7030063",
+            "gt_count": 16,
+            "pred_count": 17,
+            "map": 0.35028200483091787,
+            "count_error": 1,
+            "raw_count_error": 1
+        },
+        {
+            "id": "62057502c387145ed4f8f7f0d5e5bedcb72d3bcec15fa71cb0310dee32871461",
+            "gt_count": 101,
+            "pred_count": 89,
+            "map": 0.656338741682456,
+            "count_error": 12,
+            "raw_count_error": -12
+        },
+        {
+            "id": "317832f90f02c5e916b2ac0f3bcb8da9928d8e400b747b2c68e544e56adacf6b",
+            "gt_count": 41,
+            "pred_count": 40,
+            "map": 0.6328047268701732,
+            "count_error": 1,
+            "raw_count_error": -1
+        },
+        {
+            "id": "a022908f1b7880838dbc0411e50828e64b4f5e0263afdf04295e30bb2ff58005",
+            "gt_count": 42,
+            "pred_count": 40,
+            "map": 0.6201651639379155,
+            "count_error": 2,
+            "raw_count_error": -2
+        },
+        {
+            "id": "64eeef16fdc4e26523d27bfa71a1d38d2cb2e4fa116c0d0ea56b1322f806f0b9",
+            "gt_count": 90,
+            "pred_count": 86,
+            "map": 0.5780367219524044,
+            "count_error": 4,
+            "raw_count_error": -4
+        },
+        {
+            "id": "094afe36759e7daffe12188ab5987581d405b06720f1d5acf3f2614f404df380",
+            "gt_count": 65,
+            "pred_count": 51,
+            "map": 0.37233319317205626,
+            "count_error": 14,
+            "raw_count_error": -14
+        },
+        {
+            "id": "8c3ef7aa7ed29b62a65b1c394d2b4a24aa3da25aebfdf3d29dbfc8ad1b08e95a",
+            "gt_count": 39,
+            "pred_count": 36,
+            "map": 0.6355813570487483,
+            "count_error": 3,
+            "raw_count_error": -3
+        },
+        {
+            "id": "7c318172e976ae5a962c9c7a4e9fe46d7fb985765ddd3a3e2108e893a90b92b2",
+            "gt_count": 48,
+            "pred_count": 37,
+            "map": 0.27005561166174863,
+            "count_error": 11,
+            "raw_count_error": -11
+        },
+        {
+            "id": "bbfc4aab5645637680fa0ef00925eea733b93099f1944c0aea09b78af1d4eef2",
+            "gt_count": 12,
+            "pred_count": 9,
+            "map": 0.4246153846153846,
+            "count_error": 3,
+            "raw_count_error": -3
+        },
+        {
+            "id": "33a5b0ff232b425796ee6a9dd5b516ff9aad54ca723b4ec490bf5cd9b2e2a731",
+            "gt_count": 23,
+            "pred_count": 13,
+            "map": 0.10577028758717562,
+            "count_error": 10,
+            "raw_count_error": -10
+        },
+        {
+            "id": "4a424e0cb845cf6fd4d9fe62875552c7b89a4e0276cf16ebf46babe4656a794e",
+            "gt_count": 53,
+            "pred_count": 42,
+            "map": 0.25872842753861175,
+            "count_error": 11,
+            "raw_count_error": -11
+        },
+        {
+            "id": "4c465a54e329ec7b0f4bc5f6acdfd3192707d6c0fbdf557339485581c5a6b3c1",
+            "gt_count": 79,
+            "pred_count": 64,
+            "map": 0.4603112624010307,
+            "count_error": 15,
+            "raw_count_error": -15
+        },
+        {
+            "id": "3441821ebea04face181c9e2f4d0d09727c764827ac51b9e7fbadbebabeab225",
+            "gt_count": 28,
+            "pred_count": 20,
+            "map": 0.5215657920565334,
+            "count_error": 8,
+            "raw_count_error": -8
+        },
+        {
+            "id": "fc22db33a2495f58f118bc182c0087e140df14ccb8dad51373e1a54381f683de",
+            "gt_count": 89,
+            "pred_count": 73,
+            "map": 0.4906805923884507,
+            "count_error": 16,
+            "raw_count_error": -16
+        },
+        {
+            "id": "a102535b0e88374bea4a1cfd9ee7cb3822ff54f4ab2a9845d428ec22f9ee2288",
+            "gt_count": 375,
+            "pred_count": 33,
+            "map": 0.0004926108374384236,
+            "count_error": 342,
+            "raw_count_error": -342
+        },
+        {
+            "id": "4e07a653352b30bb95b60ebc6c57afbc7215716224af731c51ff8d430788cd40",
+            "gt_count": 136,
+            "pred_count": 72,
+            "map": 0.08786741409817997,
+            "count_error": 64,
+            "raw_count_error": -64
+        },
+        {
+            "id": "813f41ef376c3cbcc9d6e2ce6a51c2ee068226d1c1b13404eb238dcfdd447c97",
+            "gt_count": 14,
+            "pred_count": 13,
+            "map": 0.7209663865546218,
+            "count_error": 1,
+            "raw_count_error": -1
+        },
+        {
+            "id": "2246874c8b5ba218d01ad8153a201ad4660195f3e4c65da6b9d4ccaf82cb7edf",
+            "gt_count": 83,
+            "pred_count": 61,
+            "map": 0.21891962811466442,
+            "count_error": 22,
+            "raw_count_error": -22
+        },
+        {
+            "id": "30311520606ec99b6a810ae1a9a753df991777d374212423bb075c408a98ed74",
+            "gt_count": 46,
+            "pred_count": 37,
+            "map": 0.35076534038434193,
+            "count_error": 9,
+            "raw_count_error": -9
+        },
+        {
+            "id": "97126a9791f0c1176e4563ad679a301dac27c59011f579e808bbd6e9f4cd1034",
+            "gt_count": 20,
+            "pred_count": 20,
+            "map": 0.782149223325694,
+            "count_error": 0,
+            "raw_count_error": 0
+        },
+        {
+            "id": "3b0709483b1e86449cc355bb797e841117ba178c6ae1ed955384f4da6486aa20",
+            "gt_count": 17,
+            "pred_count": 16,
+            "map": 0.3897220303260933,
+            "count_error": 1,
+            "raw_count_error": -1
+        },
+        {
+            "id": "cdab367b30db47061df837c1ae9fa875d6057614f797332d37d3513517d6c694",
+            "gt_count": 22,
+            "pred_count": 21,
+            "map": 0.8312391304347827,
+            "count_error": 1,
+            "raw_count_error": -1
+        },
+        {
+            "id": "1c681dfa5cf7e413305d2e90ee47553a46e29cce4f6ed034c8297e511714f867",
+            "gt_count": 66,
+            "pred_count": 55,
+            "map": 0.30913192024645486,
+            "count_error": 11,
+            "raw_count_error": -11
+        },
+        {
+            "id": "c322c72b9d411e631580fee9312885088b4bb14ed297aa4b246ec943533b3ffb",
+            "gt_count": 11,
+            "pred_count": 11,
+            "map": 0.45472312001723764,
+            "count_error": 0,
+            "raw_count_error": 0
+        },
+        {
+            "id": "13c8ff1f49886e91c98ce795c93648ad8634c782ff57eb928ce29496b0425057",
+            "gt_count": 17,
+            "pred_count": 18,
+            "map": 0.247798818151142,
+            "count_error": 1,
+            "raw_count_error": 1
+        },
+        {
+            "id": "3a3fee427e6ef7dfd0d82681e2bcee2d054f80287aea7dfa3fa4447666f929b9",
+            "gt_count": 56,
+            "pred_count": 48,
+            "map": 0.43951902366117235,
+            "count_error": 8,
+            "raw_count_error": -8
+        },
+        {
+            "id": "23830d0e51245fc0c9e410efa4c17d2a7d83a0104a3777130119ab892de47a4e",
+            "gt_count": 40,
+            "pred_count": 41,
+            "map": 0.23157643477623197,
+            "count_error": 1,
+            "raw_count_error": 1
+        },
+        {
+            "id": "f0c9f135c62572f3669a75b2c735e4477dc77fac85e653426ee2b3bcfbed7aaf",
+            "gt_count": 24,
+            "pred_count": 22,
+            "map": 0.6950579366187352,
+            "count_error": 2,
+            "raw_count_error": -2
+        },
+        {
+            "id": "b2c5d8653c621207e97b699e5c4c05d13df4f02d9db3e594b1f0c22e5b746aae",
+            "gt_count": 24,
+            "pred_count": 24,
+            "map": 0.5222930551530958,
+            "count_error": 0,
+            "raw_count_error": 0
+        },
+        {
+            "id": "e2d22d3d283915df8350d039278e314a23e6e8f2b41bdfc16df849e22dd13b36",
+            "gt_count": 42,
+            "pred_count": 44,
+            "map": 0.7065458114953753,
+            "count_error": 2,
+            "raw_count_error": 2
+        },
+        {
+            "id": "bf4a61bb81589c9a67e3343408befd3e135af5e88b50c17f998f2131d24bc271",
+            "gt_count": 3,
+            "pred_count": 3,
+            "map": 0.29,
+            "count_error": 0,
+            "raw_count_error": 0
+        },
+        {
+            "id": "4ca5081854df7bbcaa4934fcf34318f82733a0f8c05b942c2265eea75419d62f",
+            "gt_count": 37,
+            "pred_count": 25,
+            "map": 0.22874459769810804,
+            "count_error": 12,
+            "raw_count_error": -12
+        },
+        {
+            "id": "45f059cf21d85ecfce0eb93260516f1e2443d210e9a52f9ae2271d604aa3fcc5",
+            "gt_count": 15,
+            "pred_count": 18,
+            "map": 0.08477524630541873,
+            "count_error": 3,
+            "raw_count_error": 3
+        },
+        {
+            "id": "e49fc2b4f1f39d481a6525225ab3f688be5c87f56884456ad54c953315efae83",
+            "gt_count": 69,
+            "pred_count": 27,
+            "map": 0.0817298909503988,
+            "count_error": 42,
+            "raw_count_error": -42
+        },
+        {
+            "id": "f7e5dcfc9c93183c668c5a4ab028d5faad54fb54298711f2caae0508aa978300",
+            "gt_count": 26,
+            "pred_count": 25,
+            "map": 0.4595700478146251,
+            "count_error": 1,
+            "raw_count_error": -1
+        },
+        {
+            "id": "431b9b0c520a28375b5a0c18d0a5039dd62cbca7c4a0bcc25af3b763d4a81bec",
+            "gt_count": 11,
+            "pred_count": 11,
+            "map": 0.5717050922933276,
+            "count_error": 0,
+            "raw_count_error": 0
+        },
+        {
+            "id": "ff3e512b5fb860e5855d0c05b6cf5a6bcc7792e4be1f0bdab5a00af0e18435c0",
+            "gt_count": 13,
+            "pred_count": 12,
+            "map": 0.45863095238095236,
+            "count_error": 1,
+            "raw_count_error": -1
+        },
+        {
+            "id": "dbbfe08a52688d0ac8de9161cbb17cb201e3991aacab8ab8a77fe0e203a69481",
+            "gt_count": 38,
+            "pred_count": 35,
+            "map": 0.3758644477241601,
+            "count_error": 3,
+            "raw_count_error": -3
+        },
+        {
+            "id": "eb1df8ed879d04b36980b0958a0e8fc446ad08c0bdcf3b5f42e3db023187c7e5",
+            "gt_count": 59,
+            "pred_count": 46,
+            "map": 0.3532934529652107,
+            "count_error": 13,
+            "raw_count_error": -13
+        },
+        {
+            "id": "27c30f9011492f234e4587c9a4b53c787037d486f658821196fe354240ac3c47",
+            "gt_count": 39,
+            "pred_count": 34,
+            "map": 0.5589773022965887,
+            "count_error": 5,
+            "raw_count_error": -5
+        },
+        {
+            "id": "a891bbc89143bca7a717386144eb061ec2d599cba24681389bcb3a2fedb8ff8c",
+            "gt_count": 155,
+            "pred_count": 121,
+            "map": 0.4864476149111093,
+            "count_error": 34,
+            "raw_count_error": -34
+        },
+        {
+            "id": "4327d27591871e9c8d317071a390d1b3dcedad05a9746175b005c41ea0d797b2",
+            "gt_count": 31,
+            "pred_count": 26,
+            "map": 0.5339327559095002,
+            "count_error": 5,
+            "raw_count_error": -5
+        },
+        {
+            "id": "21408476af0506331e8b5d49b385833e5ef1fbb90815fbf9af9d19b4bb145f76",
+            "gt_count": 8,
+            "pred_count": 10,
+            "map": 0.40007815713698064,
+            "count_error": 2,
+            "raw_count_error": 2
+        },
+        {
+            "id": "3594684b9ea0e16196f498815508f8d364d55fea2933a2e782122b6f00375d04",
+            "gt_count": 55,
+            "pred_count": 39,
+            "map": 0.1488439574385012,
+            "count_error": 16,
+            "raw_count_error": -16
+        },
+        {
+            "id": "a0de55384fada5cbc46bd7a41f6feeef93b67d088497c7316079ccec39c2a834",
+            "gt_count": 68,
+            "pred_count": 70,
+            "map": 0.32503195955903585,
+            "count_error": 2,
+            "raw_count_error": 2
+        },
+        {
+            "id": "84eeec681987753029eb83ea5f3ff7e8b5697783cdb2035f2882d40c9a3f1029",
+            "gt_count": 1,
+            "pred_count": 1,
+            "map": 1.0,
+            "count_error": 0,
+            "raw_count_error": 0
+        },
+        {
+            "id": "0532c64c2fd0c4d3188cc751cdfd566b1cfba3d269358717295bab1504c7c275",
+            "gt_count": 24,
+            "pred_count": 19,
+            "map": 0.4567608168744628,
+            "count_error": 5,
+            "raw_count_error": -5
+        },
+        {
+            "id": "c96109cbebcf206f20035cbde414e43872074eee8d839ba214feed9cd36277a1",
+            "gt_count": 23,
+            "pred_count": 21,
+            "map": 0.48044412870821296,
+            "count_error": 2,
+            "raw_count_error": -2
+        },
+        {
+            "id": "a6593632dcbbe4c9e9429a9cec573d26fd8c91a47d554d315f25e7c2e0280ee3",
+            "gt_count": 10,
+            "pred_count": 11,
+            "map": 0.816083916083916,
+            "count_error": 1,
+            "raw_count_error": 1
+        },
+        {
+            "id": "abd8dde78f8d37b68b28da67459371ed65f0a575523e94bc4ecbc88e6fedf0d0",
+            "gt_count": 14,
+            "pred_count": 10,
+            "map": 0.1914260074739278,
+            "count_error": 4,
+            "raw_count_error": -4
+        },
+        {
+            "id": "c620631271a56407d6d69fa1a69451ca99c50dcc30e29db04cf6fb7cacbde8cb",
+            "gt_count": 11,
+            "pred_count": 14,
+            "map": 0.4794642857142857,
+            "count_error": 3,
+            "raw_count_error": 3
+        },
+        {
+            "id": "2bf594e9d06f78b4b79d7ffb395497a0a91126b6b0d710d7a9cee21f5c3bd177",
+            "gt_count": 23,
+            "pred_count": 18,
+            "map": 0.10314007146243989,
+            "count_error": 5,
+            "raw_count_error": -5
+        },
+        {
+            "id": "212b858a66f0d23768b8e3e1357704fc2f4cf4bbe7eed8cd59b5d01031d553e6",
+            "gt_count": 100,
+            "pred_count": 87,
+            "map": 0.5334475493045752,
+            "count_error": 13,
+            "raw_count_error": -13
+        },
+        {
+            "id": "e52960d31f8bddf85400259beb4521383f5ceface1080be3429f2f926cc9b5c2",
+            "gt_count": 130,
+            "pred_count": 113,
+            "map": 0.5992073416956509,
+            "count_error": 17,
+            "raw_count_error": -17
+        },
+        {
+            "id": "00ae65c1c6631ae6f2be1a449902976e6eb8483bf6b0740d00530220832c6d3e",
+            "gt_count": 70,
+            "pred_count": 47,
+            "map": 0.22835066325327583,
+            "count_error": 23,
+            "raw_count_error": -23
+        },
+        {
+            "id": "8de0b1a2e8f614af29fe5fafeaa5bdf55e6b3e65edf36355f19b707f7649ce2b",
+            "gt_count": 11,
+            "pred_count": 9,
+            "map": 0.6205128205128204,
+            "count_error": 2,
+            "raw_count_error": -2
+        },
+        {
+            "id": "f534b43bf37ff946a310a0f08315d76c3fb3394681cf523acef7c0682240072a",
+            "gt_count": 18,
+            "pred_count": 16,
+            "map": 0.6409899749373434,
+            "count_error": 2,
+            "raw_count_error": -2
+        },
+        {
+            "id": "a4c44fc5f5bf213e2be6091ccaed49d8bf039d78f6fbd9c4d7b7428cfcb2eda4",
+            "gt_count": 37,
+            "pred_count": 32,
+            "map": 0.33939418590283227,
+            "count_error": 5,
+            "raw_count_error": -5
+        },
+        {
+            "id": "9ebcfaf2322932d464f15b5662cae4d669b2d785b8299556d73fffcae8365d32",
+            "gt_count": 58,
+            "pred_count": 21,
+            "map": 0.07306316529237618,
+            "count_error": 37,
+            "raw_count_error": -37
+        },
+        {
+            "id": "f728de04267283f0b4daab9a840e7433b2c6034baf195fd526850439c9297687",
+            "gt_count": 54,
+            "pred_count": 37,
+            "map": 0.2776335803839261,
+            "count_error": 17,
+            "raw_count_error": -17
+        },
+        {
+            "id": "2a2032c4ed78f3fc64de7e5efd0bec26a81680b07404eaa54a1744b7ab3f8365",
+            "gt_count": 22,
+            "pred_count": 18,
+            "map": 0.7209349870519286,
+            "count_error": 4,
+            "raw_count_error": -4
+        },
+        {
+            "id": "c0152b1a260e71f9823d17f4fbb4bf7020d5dce62b4a12b3099c1c8e52a1c43a",
+            "gt_count": 25,
+            "pred_count": 14,
+            "map": 0.16349196855775802,
+            "count_error": 11,
+            "raw_count_error": -11
+        },
+        {
+            "id": "fc5452f612a0f972fe55cc677055ede662af6723b5c1615ad539b8a4bd279bdb",
+            "gt_count": 32,
+            "pred_count": 33,
+            "map": 0.28403915209562997,
+            "count_error": 1,
+            "raw_count_error": 1
+        },
+        {
+            "id": "ea94ba4b01d1bd5f7768d10e0ac547743791033df545c71fcec442d0cb5cb5e7",
+            "gt_count": 42,
+            "pred_count": 31,
+            "map": 0.316144587259341,
+            "count_error": 11,
+            "raw_count_error": -11
+        },
+        {
+            "id": "11a0170f44e3ab4a8d669ae8ea9546d3a32ebfe6486d9066e5648d30b4e1cb69",
+            "gt_count": 12,
+            "pred_count": 13,
+            "map": 0.5699112978524743,
+            "count_error": 1,
+            "raw_count_error": 1
+        },
+        {
+            "id": "f9ac03b0344ce8c48bc058448541f9211a1e5f4c94fdaf633dd534328d8610ab",
+            "gt_count": 20,
+            "pred_count": 22,
+            "map": 0.7046372757677106,
+            "count_error": 2,
+            "raw_count_error": 2
+        },
+        {
+            "id": "aa47f0b303b1d525b52452ae3a8553b2d61d719a28aee547e2ef1fc6730a078f",
+            "gt_count": 31,
+            "pred_count": 22,
+            "map": 0.3656338371619702,
+            "count_error": 9,
+            "raw_count_error": -9
+        },
+        {
+            "id": "a246bcaa64af48ee5ca181cd594c0fc43466e7614406eb8bc01199a16ebc95d0",
+            "gt_count": 44,
+            "pred_count": 39,
+            "map": 0.3476033582308095,
+            "count_error": 5,
+            "raw_count_error": -5
+        },
+        {
+            "id": "58cc121d37fb7f1b4a5252024d88415936781e540252b8f734faeedd29b682d5",
+            "gt_count": 49,
+            "pred_count": 46,
+            "map": 0.23195587968660875,
+            "count_error": 3,
+            "raw_count_error": -3
+        },
+        {
+            "id": "e4537e7893e631f3ba6ae5b1023e24b233c78249a31c2f5e561f6c4cad88fcf6",
+            "gt_count": 21,
+            "pred_count": 20,
+            "map": 0.6560289348332826,
+            "count_error": 1,
+            "raw_count_error": -1
+        },
+        {
+            "id": "c35e6e3ea39a718e1b7aff66e4cc678efd662f9b5336b74d69c1d6bca7aaf288",
+            "gt_count": 39,
+            "pred_count": 35,
+            "map": 0.6047367085297103,
+            "count_error": 4,
+            "raw_count_error": -4
+        },
+        {
+            "id": "f20eb4592e7d3cf58d421a9c34832d33adcdcbd0e17b7bf009a013847608da27",
+            "gt_count": 30,
+            "pred_count": 28,
+            "map": 0.7359291443850267,
+            "count_error": 2,
+            "raw_count_error": -2
+        },
+        {
+            "id": "f26f4c2c70c38fe12e00d5a814d5116691f2ca548908126923fd76ddd665ed24",
+            "gt_count": 52,
+            "pred_count": 50,
+            "map": 0.40446391366322637,
+            "count_error": 2,
+            "raw_count_error": -2
+        },
+        {
+            "id": "56d0da5b663ddd49955478c00ca03118c367ff7dd6a646b8c875b0acb207d1c5",
+            "gt_count": 24,
+            "pred_count": 23,
+            "map": 0.6156610772739805,
+            "count_error": 1,
+            "raw_count_error": -1
+        },
+        {
+            "id": "947c0d94c8213ac7aaa41c4efc95d854246550298259cf1bb489654d0e969050",
+            "gt_count": 64,
+            "pred_count": 42,
+            "map": 0.11107251944110381,
+            "count_error": 22,
+            "raw_count_error": -22
+        },
+        {
+            "id": "c89ac06daef5c819309f03d6a35792d1a8a66abb8cb3414013ffe71d3dd9fe96",
+            "gt_count": 38,
+            "pred_count": 36,
+            "map": 0.6710082748462869,
+            "count_error": 2,
+            "raw_count_error": -2
+        },
+        {
+            "id": "b82548ab19466b461614e6055aaf49fbc24c03a2d20e65575b680c7c28268807",
+            "gt_count": 37,
+            "pred_count": 34,
+            "map": 0.7273785001211663,
+            "count_error": 3,
+            "raw_count_error": -3
+        },
+        {
+            "id": "9774c82396327929fea05e40ae153cabf0107178b2ae3e40a5709b409793887e",
+            "gt_count": 14,
+            "pred_count": 14,
+            "map": 0.31461562998405107,
+            "count_error": 0,
+            "raw_count_error": 0
+        },
+        {
+            "id": "9f073db4acd7e634fd578af50d4e77218742f63a4d423a99808d6fd7cb0d3cdb",
+            "gt_count": 18,
+            "pred_count": 17,
+            "map": 0.5046652809958656,
+            "count_error": 1,
+            "raw_count_error": -1
+        },
+        {
+            "id": "54fe2d3416951cbc48f8718624c86a7ae58b6022a7fa75591b13f625cf53658b",
+            "gt_count": 25,
+            "pred_count": 24,
+            "map": 0.6453995149689817,
+            "count_error": 1,
+            "raw_count_error": -1
+        },
+        {
+            "id": "8cdbdda8b3a64c97409c0160bcfb06eb8e876cedc3691aa63ca16dbafae6f948",
+            "gt_count": 92,
+            "pred_count": 76,
+            "map": 0.3563924594260151,
+            "count_error": 16,
+            "raw_count_error": -16
+        },
+        {
+            "id": "cc88627344305b9a9b07f8bd042cb074c7a834c13de67ff4b24914ac68f07f6e",
+            "gt_count": 135,
+            "pred_count": 116,
+            "map": 0.61452250533646,
+            "count_error": 19,
+            "raw_count_error": -19
+        },
+        {
+            "id": "d35f25c8e3f7fca5232fc4d5e3faf14b025b20b3731af77fe971a5e2e9d69d28",
+            "gt_count": 35,
+            "pred_count": 33,
+            "map": 0.7852580820022681,
+            "count_error": 2,
+            "raw_count_error": -2
+        },
+        {
+            "id": "150b0ffa318c87b31d78af0e87d60390dbcd84b5f228a8c1fb3225cbe5df3e3f",
+            "gt_count": 198,
+            "pred_count": 127,
+            "map": 0.2566808161591577,
+            "count_error": 71,
+            "raw_count_error": -71
+        },
+        {
+            "id": "9bb6e39d5f4415bc7554842ee5d1280403a602f2ba56122b87f453a62d37c06e",
+            "gt_count": 132,
+            "pred_count": 108,
+            "map": 0.2899595462845875,
+            "count_error": 24,
+            "raw_count_error": -24
+        },
+        {
+            "id": "c9f305be17312bdb9530fb4f1adc6d29730ddbe0e74730cbf031de174bf437b7",
+            "gt_count": 20,
+            "pred_count": 17,
+            "map": 0.5294148801175449,
+            "count_error": 3,
+            "raw_count_error": -3
+        },
+        {
+            "id": "3852c7e45bd885b9537e276861ab50b99bb42f0f8e717d2f88174c62862ca3ff",
+            "gt_count": 56,
+            "pred_count": 43,
+            "map": 0.3756179706668994,
+            "count_error": 13,
+            "raw_count_error": -13
+        },
+        {
+            "id": "0280fa8f60f6bcae0f97d93c28f60be194f9309ff610dc5845e60455b0f87c21",
+            "gt_count": 16,
+            "pred_count": 17,
+            "map": 0.626533066537311,
+            "count_error": 1,
+            "raw_count_error": 1
+        },
+        {
+            "id": "b67a6e5da8b1cfa5319d94a7d3f8b706725753346c37a4636bf7382e98b3c5df",
+            "gt_count": 11,
+            "pred_count": 10,
+            "map": 0.5528340080971661,
+            "count_error": 1,
+            "raw_count_error": -1
+        },
+        {
+            "id": "dd54adb80393de7769b9853c0aa2ee9b240905d0e99c59d4ccd99401f327aa05",
+            "gt_count": 141,
+            "pred_count": 108,
+            "map": 0.48532028311189057,
+            "count_error": 33,
+            "raw_count_error": -33
+        }
+    ]
+}

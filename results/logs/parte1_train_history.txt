@@ -1,0 +1,4 @@
+=== LOG PARTE 1: TREINO BASELINE ===
+Data: 2026-09-14 07:37:38
+Tempo Total de Treino: 1108.21s
+Melhor Val IoU: 0.831

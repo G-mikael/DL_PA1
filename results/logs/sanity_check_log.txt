@@ -1,0 +1,10 @@
+step: Parte 0 - Teste Unitário Sintético
+timestamp: 2026-09-14 07:18:14
+status: APPROVED
+device: cuda
+architecture: Unet-ResNet18
+epochs: 150
+total_time_seconds: 4.08
+final_loss: 0.005774
+final_mIoU: 0.9992
+final_Dice: 0.9996
