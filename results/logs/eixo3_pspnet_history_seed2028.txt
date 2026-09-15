@@ -1,0 +1,4 @@
+=== LOG PARTE 3: TREINO EIXO 3 ===
+Data: 2026-09-15 20:22:00
+Tempo Total de Treino: 2578.15s
+Melhor Val IoU: 0.5932
