@@ -1,0 +1,6 @@
+=== LOG PARTE 2: AVALIAÇÃO TRILHA A ===
+Data: 2026-09-14 22:30:09
+Amostras Avaliadas: 100
+mAP de Instância (IoU 0.50:0.95): 0.364
+Erro Médio Absoluto (MAE): 10.17
+RMSE de Contagem: 37.93
