@@ -212,8 +212,7 @@ def main(model_architecture, checkpoint_name):
     print(f"\nVisualização salva em: {REPORTS_DIR / 'mosaic_comparison.png'}")
 
 if __name__ == "__main__":
-    # Exemplo assumindo que o DeepLab foi o vencedor
-    melhor_arquitetura = smp.DeepLabV3Plus(encoder_name="resnet18", in_channels=3, classes=3).to(device)
-    melhor_peso = "eixo1_deeplab_resnet18_seed2027.pth" 
+    melhor_arquitetura = smp.Unet(encoder_name="resnet18", in_channels=3, classes=3).to(device)
+    melhor_peso = "trilha_a_unet_resnet18_seed2028.pth" 
     
     main(melhor_arquitetura, melhor_peso)

@@ -1,0 +1,4 @@
+=== LOG PARTE 2: TREINO TRILHA A ===
+Data: 2026-09-15 17:23:32
+Tempo Total de Treino: 2606.18s
+Melhor Val IoU: 0.6881

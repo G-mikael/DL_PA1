@@ -195,15 +195,15 @@ def run_all_evaluations():
         (smp.Unet(encoder_name="resnet18", in_channels=3, classes=3).to(device), 
          ROOT_DIR / "checkpoints" / "trilha_a_unet_resnet18_seed2027.pth", "eval_unet_2027.json"),
         (smp.Unet(encoder_name="resnet18", in_channels=3, classes=3).to(device), 
-         ROOT_DIR / "checkpoints" / "trilha_a_unet_resnet18_seed42.pth", "eval_unet_42.json"),
+         ROOT_DIR / "checkpoints" / "trilha_a_unet_resnet18_seed2028.pth", "eval_unet_2028.json"),
         (smp.DeepLabV3Plus(encoder_name="resnet18", in_channels=3, classes=3).to(device), 
          ROOT_DIR / "checkpoints" / "eixo1_deeplab_resnet18_seed2027.pth", "eval_deeplab_2027.json"),
         (smp.DeepLabV3Plus(encoder_name="resnet18", in_channels=3, classes=3).to(device), 
-         ROOT_DIR / "checkpoints" / "eixo1_deeplab_resnet18_seed42.pth", "eval_deeplab_42.json"),
+         ROOT_DIR / "checkpoints" / "eixo1_deeplab_resnet18_seed2028.pth", "eval_deeplab_2028.json"),
         (smp.PSPNet(encoder_name="resnet18", in_channels=3, classes=3).to(device), 
          ROOT_DIR / "checkpoints" / "eixo3_pspnet_resnet18_seed2027.pth", "eval_pspnet_2027.json"),
         (smp.PSPNet(encoder_name="resnet18", in_channels=3, classes=3).to(device), 
-         ROOT_DIR / "checkpoints" / "eixo3_pspnet_resnet18_seed42.pth", "eval_pspnet_42.json")
+         ROOT_DIR / "checkpoints" / "eixo3_pspnet_resnet18_seed2028.pth", "eval_pspnet_2028.json")
     ]
 
     for model, ckpt, json_out in models_to_evaluate:
