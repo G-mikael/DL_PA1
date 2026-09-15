@@ -121,7 +121,7 @@ def train_baseline():
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', patience=5, factor=0.5)
 
     best_val_iou = 0.0
-    epochs = 40
+    epochs = 25
 
     start_time = time.time()
     history = []
