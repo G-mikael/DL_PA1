@@ -25,14 +25,15 @@ A solução envolve o projeto de três componentes interligados:
 ├── AI_LOG.md
 ├── requirements.txt
 │
-├── inferencia.ipynb
-│
 ├── data/
 │   ├── raw/                    # Dados originais
 │   ├── processed/              # Dados processados
 │   └── synthetic/              # Dados sintéticos
 │
 ├── checkpoints/                # Pesos dos modelos treinados (.pth)
+│
+├── results/                
+│   └── logs/               # Logs com as métricas obtidas
 │
 ├── src/
 │   ├── dataset.py              # Dataset, DataLoaders e augmentations
@@ -41,27 +42,9 @@ A solução envolve o projeto de três componentes interligados:
 │   ├── prepare_dataset.py      # Preparação do dataset
 │   ├── prepare_datasetpart6.py # Preparação para a Parte 6
 │   ├── train_part6.py          # Treinamento da Parte 6
-│   │
-│   ├── models/
-│   │   ├── fcn.py
-│   │   ├── segnet.py
-│   │   ├── unet.py
-│   │   ├── resunet.py
-│   │   ├── deeplab.py
-│   │   └── pspnet.py
-│   │
-│   ├── losses/                 # Funções de perda
-│   │
-│   └── utils/
-│       ├── matching.py         # Matching entre predições e ground truth
-│       ├── map.py              # Métricas/mAP
-│       ├── postprocessing.py   # Pós-processamento das predições
-│       └── receptive_field.py  # Análise de campo receptivo
-│
+│   └── evaluate_models.py          # Treinamento da Parte 6
 └── scripts/
-    ├── train.py                # Treinamento
-    ├── evaluate.py             # Avaliação
-    └── stress_test.py          # Testes de estresse
+    └── inferencia.ipynb
 ```
 
 ---
