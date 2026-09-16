@@ -56,9 +56,6 @@ for sample in sample_dirs:
     features_list.append(feat)
     img_paths_list.append(img_path)
 
-print(features_list)
-print(img_paths_list)
-
 X = np.array(features_list)
 
 # Buscando separar as imagens em 5 diferentes modalidades usando K-Means
