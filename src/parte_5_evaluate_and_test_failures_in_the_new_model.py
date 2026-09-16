@@ -46,6 +46,7 @@ def compare_worst_failures():
             images, masks = images.to(device), masks.to(device)
             outputs = model_old(images)
             preds = torch.argmax(torch.softmax(outputs, dim=1), dim=1)
+            probs = torch.softmax(outputs, dim=1)
 
             # IoU médio da amostra
             ious = []
@@ -62,7 +63,8 @@ def compare_worst_failures():
                 "old_iou": np.mean(ious),
                 "image": images[0].cpu().numpy(),
                 "gt": masks[0].cpu().numpy(),
-                "old_pred": preds[0].cpu().numpy()
+                "old_pred": preds[0].cpu().numpy(),
+                "boundary_map": probs[0, 2].cpu().numpy()
             })
 
     # Seleciona as 5 piores amostras do modelo antigo
@@ -93,7 +95,7 @@ def compare_worst_failures():
             new_iou = np.mean(ious_new)
 
         # Plot comparativo: Original | Ground Truth | Predição Antiga | Nova Predição
-        fig, axes = plt.subplots(1, 4, figsize=(18, 4.5))
+        fig, axes = plt.subplots(1, 5, figsize=(22.5, 4.5))
 
         # Normalização de exibição da imagem RGB
         img_vis = np.transpose(item["image"], (1, 2, 0))
@@ -110,10 +112,15 @@ def compare_worst_failures():
         axes[2].imshow(item["old_pred"], vmin=0, vmax=2, cmap="viridis")
         axes[2].set_title(f"Modelo Antigo\n(IoU: {item['old_iou']:.4f})")
         axes[2].axis("off")
-
-        axes[3].imshow(pred_new.cpu().numpy(), vmin=0, vmax=2, cmap="viridis")
-        axes[3].set_title(f"Novo Modelo (Best IoU)\n(IoU: {new_iou:.4f})")
+        
+        im = axes[3].imshow(item["boundary_map"], cmap="magma", vmin=0, vmax=1)
+        axes[3].set_title("Mapa Intermediário\nProbabilidade de Fronteira")
         axes[3].axis("off")
+        plt.colorbar(im, ax=axes[3], fraction=0.046, pad=0.04)
+
+        axes[4].imshow(pred_new.cpu().numpy(), vmin=0, vmax=2, cmap="viridis")
+        axes[4].set_title(f"Novo Modelo (Best IoU)\n(IoU: {new_iou:.4f})")
+        axes[4].axis("off")
 
         plt.tight_layout()
         save_path = OUTPUT_DIR / f"comparativo_rank_{rank}_{item['sample_id'][:8]}.png"
