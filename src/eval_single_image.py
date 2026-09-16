@@ -245,3 +245,20 @@ def process_single_image(sample_code, model, raw_dir=None, device_to_use=None):
         "num_preds": num_preds,
         "map_score": round(image_map, 4)
     }
+
+def predict_instance_mask(img_path, model):
+    img_path = Path(img_path)
+    if not img_path.is_file():
+        raise FileNotFoundError(f"Erro: Imagem não encontrada no caminho: {img_path}")
+
+    # 1. Carrega a imagem
+    orig_img = np.array(Image.open(img_path).convert("RGB"))
+    
+    # 2. Prepara a transformação definida no arquivo
+    transform = get_val_transform()
+    
+    # 3. Executa o forward pass e o pós-processamento (Watershed) reutilizando sua função interna
+    pred_masks, class_map, instance_labels, num_markers = predict_instances(model, orig_img, transform)
+    
+    # Retorna apenas a matriz 2D final com os IDs das instâncias
+    return instance_labels
