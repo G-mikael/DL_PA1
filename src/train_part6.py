@@ -186,7 +186,7 @@ def train_trilha_a():
     print(f"Fronteira: {class_weights[2]:.4f}")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"Treinando Trilha A - U-Net (ResNet-18) em: {device}")
+    print(f"Treinando Parte 6 - U-Net (ResNet-18) em: {device}")
 
     model = smp.Unet(
         encoder_name="resnet18",
@@ -263,7 +263,7 @@ def train_trilha_a():
         # Salva o melhor checkpoint baseado no IoU semântico
         if mean_val_iou > best_val_iou:
             best_val_iou = mean_val_iou
-            checkpoint_path = CHECKPOINT_DIR / "trilha_a_unet_resnet18_seed2028.pth"
+            checkpoint_path = CHECKPOINT_DIR / "parte6_unet_resnet18_seed2028.pth"
             torch.save(model.state_dict(), checkpoint_path)
             print(f" Novo melhor modelo salvo em: {checkpoint_path} (IoU: {best_val_iou:.4f})")
     
@@ -271,7 +271,7 @@ def train_trilha_a():
 
     #Logging do histórico de treino e métricas
     log_data = {
-        "step": "Parte 2 - Trilha A - Treino",
+        "step": "Parte 6 - Treino",
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "architecture": "Unet-ResNet18",
         "epochs": epochs,
@@ -282,13 +282,13 @@ def train_trilha_a():
         "history": history
     }
 
-    log_json_path = LOG_DIR / "parte2_trilha_a_history_seed2028.json"
+    log_json_path = LOG_DIR / "parte6_history_seed2028.json"
     with open(log_json_path, "w", encoding="utf-8") as f:
         json.dump(log_data, f, indent=4, ensure_ascii=False)
 
-    log_txt_path = LOG_DIR / "parte2_trilha_a_history_seed2028.txt"
+    log_txt_path = LOG_DIR / "parte6_history_seed2028.txt"
     with open(log_txt_path, "w", encoding="utf-8") as f:
-        f.write("=== LOG PARTE 2: TREINO TRILHA A ===\n")
+        f.write("=== LOG PARTE 6: TREINO ===\n")
         f.write(f"Data: {log_data['timestamp']}\n")
         f.write(f"Tempo Total de Treino: {log_data['total_train_time_seconds']}s\n")
         f.write(f"Melhor Val IoU: {log_data['best_val_iou']}\n")
