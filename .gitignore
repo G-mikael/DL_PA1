@@ -2,6 +2,8 @@
 data/*
 !data/**/.gitkeep
 !data/processed/split.json
+!data/teste/
+!data/teste/**
 
 # Outputs
 
