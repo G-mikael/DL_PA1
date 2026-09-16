@@ -1,0 +1,4 @@
+=== LOG PARTE 6: TREINO ===
+Data: 2026-09-16 18:02:34
+Tempo Total de Treino: 2328.5s
+Melhor Val IoU: 0.6992
