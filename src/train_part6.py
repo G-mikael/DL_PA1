@@ -164,7 +164,7 @@ def calculate_class_weights(dataset):
 # Pipeline de Treinamento e Validação
 def train_trilha_a():
     RAW_DIR = Path("data/raw/stage1_train")
-    SPLIT_PATH = Path("data/processed/split.json")
+    SPLIT_PATH = Path("data/processed/split_leave_one_cluster_out.json")
     CHECKPOINT_DIR = Path("checkpoints")
     CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
 
