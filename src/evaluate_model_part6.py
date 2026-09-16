@@ -193,7 +193,7 @@ def evaluate_specific_model(model, checkpoint_path, output_json_name):
 def run_all_evaluations():
     models_to_evaluate = [
         # (Arquitetura, Caminho do Peso, Nome do JSON de saída)
-        (smp.PSPNet(encoder_name="resnet18", in_channels=3, classes=3).to(device), 
+        (smp.Unet(encoder_name="resnet18", in_channels=3, classes=3).to(device), 
          ROOT_DIR / "checkpoints" / "parte6_unet_resnet18_seed2028.pth", "eval_model_stress_test_2028.json")
     ]
 
