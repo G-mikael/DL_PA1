@@ -40,9 +40,9 @@ A solução envolve o projeto de três componentes interligados:
 │   ├── synthetic.py            # Gerador de imagens sintéticas
 │   ├── download_data.py        # Download/preparação dos dados
 │   ├── prepare_dataset.py      # Preparação do dataset
-│   ├── prepare_datasetpart6.py # Preparação para a Parte 6
-│   ├── train_part6.py          # Treinamento da Parte 6
-│   └── evaluate_models.py          # Treinamento da Parte 6
+│   ├── prepare_datasetpart6.py # Preparação para a Parte 6 (stress_test)
+│   ├── train_part6.py          # Treinamento da Parte 6 (stress_test)
+│   └── evaluate_models.py      # Avaliar métricas no conjunto de teste
 └── scripts/
     └── inferencia.ipynb
 ```
@@ -242,7 +242,7 @@ O arquivo `AI_LOG.md` contém o registro das ferramentas de inteligência artifi
 
 ---
 
-## 18. Autores
+## 12. Autores
 
 **Gerardo Mikael do Carmo Pereira**
 **George Rodrigues Vaz**
